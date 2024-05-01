@@ -39,13 +39,12 @@ ol {
 
 .page {
   display: flex;
-  justify-items: center;
-  align-items: center;
 }
 
 .content {
   display: flex;
   align-items: end;
+  margin: auto;
   width: 1140px;
   gap: 30px;
 }
@@ -160,10 +159,8 @@ ol {
   font-weight: 400;
   font-size: 18px;
   line-height: 90%;
-  padding: 6 0 4px 2px;
+  padding: 0 0 4px 2px;
 }
-
-
 
 .visually-hidden {
   position: absolute;
@@ -178,7 +175,6 @@ ol {
 .search-form__fieldset {
   border: none;
 }
-
 
 .search-form__label {
   display: inline-block;
@@ -272,7 +268,6 @@ ol {
   outline: 1px solid #fff;
   outline-offset: 1px;
   margin: 2px;
-    /*дичь*/
 }
 
 .search-form__checkbox:active+.search-form__pseudo-checkbox {
@@ -283,7 +278,6 @@ ol {
   outline: 1px solid #fff;
   outline-offset: 1px;
   margin: 2px;
-   /*дичь*/
 }
 
 .search-form__label:hover {
