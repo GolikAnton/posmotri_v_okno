@@ -85,7 +85,7 @@ ol {
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 130%;
+  margin-block-end: 5px;
  }
 
 .search-form__label {
@@ -94,19 +94,17 @@ ol {
 }
 
 .search-form__label-text {
-  vertical-align: top;
-  line-height: 140%;
+  vertical-align: bottom;
   padding-inline-start: 5px;
  }
 
 .search-form__textfield {
   inline-size: 225px;
-  padding: 2.5px 0;
+  padding: 1.5px 0;  /*не сповпадает с макетом*/
   font-family: 'Fira Sans Condensed',sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
-  line-height: 110%;
   color: rgba(255, 255, 255, 0.7);
   border-top: thin solid #fff;
   border-right: none;
@@ -116,6 +114,29 @@ ol {
   text-align: start;
   align-self: center;
   appearance: none;
+}
+
+.search-form__textfield:focus {
+  outline: none;
+}
+
+.search-form__textfield:active {
+  outline: 1px solid #FFFFFF;
+  text-decoration: none;
+}
+
+.search-form__fieldset:focus {
+  outline: none;
+}
+
+.search-form__label:has(:focus-visible) {
+  outline: 1px solid #FFFFFF;
+  outline-offset:1px;
+}
+
+.search-form__label:hover:not(:active:nth-of-type(text)) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .search-form__checkbox-list {
@@ -133,47 +154,23 @@ ol {
   background-color: #1b1919;
 }
 
-.search-form__textfield:focus {
-  outline: none;
-}
-
-.search-form__textfield:active {
-  outline: 1px solid #FFFFFF;
-}
-
-.search-form__fieldset:focus {
-  outline: none;
-}
-
-.search-form__label:has(:focus-visible) {
-  outline: 1px solid #FFFFFF;
-  outline-offset:1px;
-}
-
-.search-form__checkbox:checked+.search-form__pseudo-checkbox {
+.search-form__checkbox:checked + .search-form__pseudo-checkbox::after {
   display: inline-block;
+  content: '';
   inline-size: 15px;
   block-size: 15px;
+  margin: 1px;
   background-color: #fff;
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  margin: 2px;
+}
+
+.search-form__checkbox:active + .search-form__pseudo-checkbox::after {
+  display: inline-block;
+  content: '';
+  inline-size: 15px;
+  block-size: 15px;
+  margin: 1px;
+  background-color: #fff;
   text-decoration: none;
-}
-
-.search-form__checkbox:active+.search-form__pseudo-checkbox {
-  display: inline-block;
-  inline-size: 15px;
-  block-size: 15px;
-  background-color: #fff;
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  margin: 2px;
-}
-
-.search-form__label:hover:not(:active) {
-  text-decoration: underline;
-  text-underline-offset: 2px;
 }
 
 .button {
@@ -216,13 +213,12 @@ ol {
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 26px;
+  gap: 24.5px; /*не совпадает с макетом*/
   inline-size: 100%;
   block-size: 100%;
 }
 
 .content__accent {
-  line-height: 88%;
   vertical-align: bottom;
   color: #545050;
 }
@@ -232,7 +228,7 @@ ol {
   font-style: normal;
   font-weight: 700;
   font-size: 75px;
-  line-height: 92%;
+  line-height: 94%;
   text-transform: uppercase;
   color: #fff;
 }
@@ -338,6 +334,7 @@ ol {
 
 .content__card-link:active {
   background: #545050;
+  text-decoration: none;
 }
 
 .content__card-link:hover:not(:active) {
