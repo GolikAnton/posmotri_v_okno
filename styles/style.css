@@ -9,7 +9,9 @@ html {
 }
 
 .page {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
   inline-size: 1200px;
   block-size: 100%;
   margin: auto;
@@ -50,8 +52,9 @@ ol {
 
 .content {
   display: flex;
+  justify-self: center;
+  align-self: center;
   align-items: end;
-  margin: auto;
   inline-size: 1140px;
   block-size: auto;
   gap: 30px;
@@ -100,7 +103,7 @@ ol {
 
 .search-form__textfield {
   inline-size: 225px;
-  padding: 1.5px 0;  /*не сповпадает с макетом*/
+  min-block-size: 27px;
   font-family: 'Fira Sans Condensed',sans-serif;
   font-style: normal;
   font-weight: 400;
@@ -120,11 +123,6 @@ ol {
   outline: none;
 }
 
-.search-form__textfield:active {
-  outline: 1px solid #FFFFFF;
-  text-decoration: none;
-}
-
 .search-form__fieldset:focus {
   outline: none;
 }
@@ -134,9 +132,19 @@ ol {
   outline-offset:1px;
 }
 
-.search-form__label:hover:not(:active:nth-of-type(text)) {
+.search-form__label:hover:not(:active) {
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.search-form__label:has(.search-form__textfield):hover {
+  text-decoration: none;
+}
+
+.search-form__textfield:active {
+  outline: 1px thin #FFFFFF;
+  border: none;
+  text-decoration: none;
 }
 
 .search-form__checkbox-list {
@@ -208,12 +216,13 @@ ol {
 
 .button:active {
   background: #545050;
+  text-decoration: none;
  }
 
 .content__details {
   display: flex;
   flex-direction: column;
-  gap: 24.5px; /*не совпадает с макетом*/
+  gap: 22px; 
   inline-size: 100%;
   block-size: 100%;
 }
@@ -241,12 +250,8 @@ ol {
   position: relative;
 }
 
-.content__list-item {
+.content__list-item:not(:last-of-type) {
   margin-block-end: 30px;
-}
-
-.content__list-item:nth-last-child() {
-  margin-block-end: 0px;
 }
 
 .content__card-link {
@@ -310,36 +315,14 @@ ol {
   outline-offset:1px;
 }
 
-.content__card-link:active {
-  background: #545050;
-}
-
-.content__card-link:hover {
+.content__card-link:hover:not(:active) {
   text-decoration: underline;
   text-underline-offset: 1px;
-}
-
-.content__card-link_current {
-  background: #545050;
-}
-
-.content__card-link:focus {
-  outline: none;
-}
-
-.content__card-link:focus-visible {
-  outline: 1px solid #FFFFFF;
-  outline-offset:1px;
 }
 
 .content__card-link:active {
   background: #545050;
   text-decoration: none;
-}
-
-.content__card-link:hover:not(:active) {
-  text-decoration: underline;
-  text-underline-offset: 1px;
 }
 
 
